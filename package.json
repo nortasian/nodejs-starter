@@ -1,0 +1,71 @@
+{
+	"name": "@nortasian/starter",
+	"description": "A Simple Node.js Express starter project",
+	"version": "1.0.0",
+	"license": "MIT",
+	"main": "src/server.js",
+	"scripts": {
+		"dev": "nodemon",
+		"test": "jest",
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix",
+		"release": "standard-version",
+		"release:pre": "yarn release -- --prerelease",
+		"release:patch": "yarn release -- --release-as patch",
+		"release:minor": "yarn release -- --release-as minor",
+		"release:major": "yarn release -- --release-as major"
+	},
+	"keywords": [
+		"express",
+		"prisma",
+		"mysql",
+		"api"
+	],
+	"author": {
+		"email": "ahmdswerky@gmail.com",
+		"name": "Ahmed Swerky",
+		"url": "https://github.com/ahmdswerky"
+	},
+	"dependencies": {
+		"@babel/core": "^7.19.1",
+		"@babel/node": "^7.19.1",
+		"@babel/preset-env": "^7.19.1",
+		"@prisma/client": "^4.3.1",
+		"babel-plugin-module-resolver": "^4.1.0",
+		"babel-register": "^6.26.0",
+		"body-parser": "^1.19.0",
+		"compression": "^1.7.4",
+		"cors": "^2.8.5",
+		"dotenv-safe": "^8.2.0",
+		"express": "^4.17.1",
+		"express-async-handler": "^1.2.0",
+		"express-validator": "^6.14.2",
+		"helmet": "^6.0.0",
+		"jest": "^29.0.3",
+		"morgan": "^1.10.0",
+		"nodemon": "^2.0.2",
+		"prisma-docs-generator": "^0.5.0",
+		"sha256": "^0.2.0",
+		"standard-version": "^9.5.0",
+		"supertest": "^6.2.4",
+		"winston": "^3.8.2"
+	},
+	"devDependencies": {
+		"@types/jest": "^29.0.3",
+		"eslint": "^8.24.0",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-import-resolver-babel-module": "^5.3.1",
+		"eslint-plugin-import": "^2.26.0",
+		"eslint-plugin-prettier": "^4.2.1",
+		"prettier": "^2.7.1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/nortasian/starter"
+	},
+	"bugs": {
+		"url": "https://github.com/nortasian/starter/issues"
+	},
+	"homepage": "https://github.com/nortasian/starter"
+}

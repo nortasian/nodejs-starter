@@ -1,0 +1,35 @@
+{
+	"include": [
+		"."
+	],
+	"compilerOptions": {
+		"baseUrl": ".",
+    "paths": {
+      "@src/*": ["./src/*"],
+      "@request": ["./__tests__/setup.js"],
+      "@user/*": ["./src/modules/user/*"]
+    },
+		"checkJs": false,
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "target": "es2018",
+    "module": "es2015"
+  },
+  "exclude": [
+    "dist",
+    "node_modules",
+    "build",
+    ".vscode",
+    "coverage",
+    "jspm_packages",
+    "tmp",
+    "temp",
+    "bower_components",
+    ".npm",
+    ".yarn"
+  ],
+  "typeAcquisition": {
+    "enable": true,
+    "include": ["jest", "node"]
+  }
+}

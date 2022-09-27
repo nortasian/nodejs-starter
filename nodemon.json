@@ -1,0 +1,14 @@
+{
+	"ext": "js",
+	"ignore": [
+		"node_modules",
+		"dist",
+		"coverage",
+		"logs"
+	],
+	"exec": "babel-node src/server",
+	"restartable": "rs",
+	"env": {
+		"NODE_ENV": "development"
+	}
+}

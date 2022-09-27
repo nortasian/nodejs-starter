@@ -1,0 +1,19 @@
+{
+	"presets": [
+		"@babel/preset-env"
+	],
+	"ignore": [
+		"node_modules/*",
+		"node_modules/**"
+  ],
+  "plugins": [
+    ["module-resolver", {
+      "root": ["."],
+      "alias": {
+        "@src": "./src",
+        "@request": "./__tests__/setup.js",
+        "@user": "./src/modules/user"
+      }
+    }]
+  ]
+}
