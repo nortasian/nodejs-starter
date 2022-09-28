@@ -21,5 +21,7 @@ jobs:
         with:
           node-version: '16'
           check-latest: true
-      - run: echo $VERSION
-      - run: echo $GITHUB_VERSION
+      - name: Read node from package.json
+        uses: culshaw/read-package-node-version-actions@v1
+        id: package-node-version
+      - run: echo v${{ steps.package-node-version.outputs.version }}
