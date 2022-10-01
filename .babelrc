@@ -11,7 +11,7 @@
       "root": ["."],
       "alias": {
         "@src": "./src",
-        "@request": "./__tests__/setup.js",
+        "@request": "./jest.setup.js",
         "@user": "./src/modules/user"
       }
     }]
