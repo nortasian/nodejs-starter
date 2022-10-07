@@ -1,8 +1,8 @@
-import Winston from 'winston';
+import Winston, { Logger } from 'winston';
 import { join } from 'path';
-import { isTesting } from './env';
+import { isTesting } from '@src/utils/env';
 
-export default function logger() {
+export default function logger(): Logger {
 	return Winston.createLogger({
 		exitOnError: false,
 		silent: isTesting,

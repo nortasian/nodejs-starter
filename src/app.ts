@@ -1,13 +1,12 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import dotenv from 'dotenv-safe';
-
 import middlewares from '@src/middleware';
 import router from '@src/routes';
 import { errorHandler } from '@src/handlers/error-handler';
 import { notFoundHandler } from '@src/handlers/not-found-handler';
 import { isDev } from '@src/utils/env';
 
-dotenv.config({
+const { parsed: env } = dotenv.config({
 	allowEmptyValues: true,
 	path: isDev ? '.env' : `.env.${process.env.NODE_ENV}`,
 });
@@ -16,7 +15,7 @@ const app = express();
 
 app.use(...middlewares);
 
-app.get('/health', (_, res) => res.status(200).send());
+app.get('/health', (_req: Request, res: Response) => res.status(200).send());
 
 app.use('/api', router);
 

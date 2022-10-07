@@ -1,0 +1,13 @@
+import { faker } from '@faker-js/faker';
+import { repeat } from '@src/utils/factory';
+import db from '@src/database/db';
+
+export async function generate(count = 25) {
+	const data = repeat(count, () => ({
+		// name: faker.name,
+	}));
+
+	return db.{{MODEL}}.createMany({
+		data,
+	});
+}

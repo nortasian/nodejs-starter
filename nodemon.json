@@ -1,12 +1,12 @@
 {
-	"ext": "js",
+	"ext": "ts,js,json",
 	"ignore": [
 		"node_modules",
 		"dist",
 		"coverage",
 		"logs"
 	],
-	"exec": "babel-node src/server",
+	"exec": "ts-node --swc -r tsconfig-paths/register ./src/server.ts",
 	"restartable": "rs",
 	"env": {
 		"NODE_ENV": "development"

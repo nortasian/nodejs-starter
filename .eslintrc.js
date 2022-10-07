@@ -4,26 +4,57 @@ module.exports = {
 		node: true,
 		jest: true,
 	},
-	extends: ['airbnb-base', 'prettier'],
-	plugins: ['prettier'],
+	extends: [
+		'eslint:recommended',
+		'plugin:@typescript-eslint/recommended',
+		'airbnb-base',
+		'plugin:prettier/recommended',
+		'plugin:import/errors',
+		'plugin:import/warnings',
+		'plugin:import/typescript',
+	],
+	parser: '@typescript-eslint/parser',
 	parserOptions: {
-		ecmaVersion: 'latest',
+		ecmaVersion: 12,
 		sourceType: 'module',
 	},
+	plugins: ['@typescript-eslint', 'prettier', 'import'],
 	rules: {
-		'prettier/prettier': ['error'],
-		'consistent-return': 'off',
-		'no-restricted-syntax': 'off',
-		'no-await-in-loop': 'off',
+		'prettier/prettier': 'error',
+		'import/extensions': 'off',
 		'import/no-cycle': 'off',
+		'no-await-in-loop': 'off',
+		'@typescript-eslint/no-unused-vars': 'off',
+		'no-unused-vars': 'off',
 		'import/prefer-default-export': 'off',
-		'no-undef': process.env.NODE === 'production' ? 'error' : 'off',
-		'no-unused-vars': process.env.NODE === 'production' ? 'error' : 'off',
-		'no-console': process.env.NODE === 'production' ? 'error' : 'off',
+		// camelcase: 'warning',
+		'import/no-unresolved': 'off',
+		'no-console': 'off',
+		'import/order': [
+			'error',
+			{
+				'newlines-between': 'never',
+				groups: [
+					['builtin', 'external'],
+					['internal', 'parent', 'sibling', 'index'],
+				],
+			},
+		],
 	},
 	settings: {
+		'import/parsers': {
+			'@typescript-eslint/parser': ['.ts'],
+		},
 		'import/resolver': {
-			'babel-module': {},
+			typescript: {
+				alwaysTryTypes: true,
+				project: './tsconfig.json',
+			},
+			jest: {
+				jestConfigFile: './jest.config.js',
+				alwaysTryTypes: true,
+				project: './tsconfig.json',
+			},
 		},
 	},
 };

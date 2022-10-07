@@ -1,9 +1,16 @@
+/* eslint-disable */
+const tsconfig = require('./tsconfig.json');
+const moduleNameMapper = require('tsconfig-paths-jest')(tsconfig);
+
+/** @type {import('ts-jest').JestConfigWithTsJest} */
 module.exports = {
-	moduleDirectories: ['node_modules'],
-	moduleFileExtensions: ['js'],
-	roots: ['<rootDir>'],
-	setupFiles: ['./jest.setup.js'],
-	testMatch: ['**/?(*.)+(spec|test).js?(x)'],
-	testPathIgnorePatterns: ['/node_modules/'],
-	verbose: true,
+	preset: 'ts-jest',
+	notify: true,
+	transform: {
+		'^.+\\.tsx?$': 'ts-jest',
+	},
+	setupFiles: ['./jest.setup.ts'],
+	moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
+	moduleNameMapper,
+	testEnvironment: 'node',
 };

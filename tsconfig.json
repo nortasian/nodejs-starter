@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "lib": ["dom", "esnext"],
+    "allowJs": true,
+    "outDir": "dist",                              
+    "rootDir": ".",                             
+    "removeComments": true,                      
+    "strict": false,                                 
+    "noImplicitAny": false,                       
+    "moduleResolution": "node",                  
+    "baseUrl": ".",                             
+    "paths": {                                   
+        "@src/*": ["src/*"],
+				"@request": ["jest.setup.ts"],
+				"@modules/*": ["./src/modules/*"],
+				"@user/*": ["./src/modules/user/*"]
+    },                                 
+    "esModuleInterop": true,                        
+    "experimentalDecorators": true,              
+    "emitDecoratorMetadata": true,               
+		"alwaysStrict": false,
+    "skipLibCheck": true,                           
+    "forceConsistentCasingInFileNames": true        
+  },
+	"ts-node": {
+		"swc": true,
+    "transpileOnly": true,
+		"compiler": "typescript",
+		"experimentalResolver": true
+  },
+  "exclude": ["node_modules", "dist", "coverage"],
+  "include": ["src"],
+  "typeAcquisition": {
+    "enable": true,
+    "include": ["jest", "node"]
+  }
+}
