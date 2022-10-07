@@ -25,7 +25,6 @@ jobs:
         shell: bash
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
-      # - run: echo ${{ steps.package-node-version.outputs.name }}-v${{ steps.package-node-version.outputs.version }}
       - run: echo ${{ steps.extract_branch.outputs.branch }} | cut -d "/" -f 2
       
       - name: Create a release
@@ -34,5 +33,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ steps.package-node-version.outputs.name }} v${{ steps.package-node-version.outputs.version }}
-          release_name: ${{ steps.package-node-version.outputs.name }} v${{ steps.package-node-version.outputs.version }}
+          tag_name: ${{ steps.extract_branch.outputs.branch }} | cut -d "/" -f 2
+          release_name: ${{ steps.extract_branch.outputs.branch }} | cut -d "/" -f 2
