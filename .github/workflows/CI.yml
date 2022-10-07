@@ -21,7 +21,12 @@ jobs:
       - name: Read node from package.json
         uses: culshaw/read-package-node-version-actions@v1
         id: package-node-version
-      - run: echo ${{ steps.package-node-version.outputs.name }}-v${{ steps.package-node-version.outputs.version }}
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      # - run: echo ${{ steps.package-node-version.outputs.name }}-v${{ steps.package-node-version.outputs.version }}
+      - run: echo ${{ steps.extract_branch.outputs.branch }} | cut -d "/" -f 2
       
       - name: Create a release
         id: create_release
