@@ -21,7 +21,7 @@ jobs:
       - name: Read node from package.json
         uses: culshaw/read-package-node-version-actions@v1
         id: package-node-version
-      - run: echo v${{ steps.package-node-version.outputs.version }}
+      - run: echo ${{ steps.package-node-version.outputs.name }} v${{ steps.package-node-version.outputs.version }}
       
       - name: Create a release
         id: create_release
@@ -29,5 +29,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{ steps.package-node-version.outputs.version }}
-          release_name: v${{ steps.package-node-version.outputs.version }}
+          tag_name: ${{ steps.package-node-version.outputs.name }} v${{ steps.package-node-version.outputs.version }}
+          release_name: ${{ steps.package-node-version.outputs.name }} v${{ steps.package-node-version.outputs.version }}
