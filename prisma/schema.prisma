@@ -1,6 +1,9 @@
-datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["fullTextSearch"]
 }
 
 model User {
@@ -11,12 +14,7 @@ model User {
   @@map("users")
 }
 
-generator client {
-  provider        = "prisma-client-js"
-  previewFeatures = ["fullTextSearch"]
-}
-
-generator docs {
-  provider = "node node_modules/prisma-docs-generator"
-  output   = "../docs"
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
