@@ -4,11 +4,11 @@ import morgan from 'morgan';
 import helmet from 'helmet';
 import cors from 'cors';
 import compression from 'compression';
-import { isTesting } from '../utils/env';
+import { isDebugMode, isTesting } from '@src/config/env';
 
 const middlewares = [urlencoded({ extended: false }), json(), cors(), compression(), helmet()];
 
-if (!isTesting) {
+if (isDebugMode && !isTesting) {
 	middlewares.push(
 		morgan('combined', {
 			skip(_req, res) {

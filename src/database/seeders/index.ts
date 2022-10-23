@@ -1,19 +1,18 @@
 import db from '@src/database/db';
-import { generateUsers } from '@src/modules/user/database/seeders/user.seeder';
+import { generateUsers } from '@user/database/seeders/user.seeder';
 
 const fake = {
 	users: generateUsers(30),
 };
 
 async function main() {
-	return db.$connect();
+	return db.authenticate();
 }
 
 main()
 	.then(() => {
 		Object.entries(fake).map(async ([name, generate]) => {
-			const { count } = await generate;
-
+			const { length: count } = await generate;
 			console.log(`✔ ${count} ${name} has been generated.`);
 		});
 	})

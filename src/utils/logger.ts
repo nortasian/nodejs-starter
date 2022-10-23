@@ -1,6 +1,6 @@
 import Winston, { Logger } from 'winston';
 import { join } from 'path';
-import { isTesting } from '@src/utils/env';
+import { isTesting } from '@src/config/env';
 
 export default function logger(): Logger {
 	return Winston.createLogger({

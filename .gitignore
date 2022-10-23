@@ -20,7 +20,6 @@ lerna-debug.log*
 !.yarn/sdks
 !.yarn/versions
 !.yarn/cache
-migrations
 .npm
 .yarn-integrity
 .DS_Store

@@ -1,15 +1,9 @@
+import 'dotenv/config';
 import express, { Request, Response } from 'express';
-import dotenv from 'dotenv-safe';
 import middlewares from '@src/middleware';
 import router from '@src/routes';
-import { errorHandler } from '@src/handlers/error-handler';
-import { notFoundHandler } from '@src/handlers/not-found-handler';
-import { isDev } from '@src/utils/env';
-
-const { parsed: env } = dotenv.config({
-	allowEmptyValues: true,
-	path: isDev ? '.env' : `.env.${process.env.NODE_ENV}`,
-});
+import { errorHandler } from '@src/handlers/errors.handler';
+import { notFoundHandler } from '@src/handlers/not-found.handler';
 
 const app = express();
 

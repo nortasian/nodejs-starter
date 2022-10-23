@@ -27,8 +27,9 @@ module.exports = {
 		'@typescript-eslint/no-unused-vars': 'off',
 		'no-unused-vars': 'off',
 		'import/prefer-default-export': 'off',
-		// camelcase: 'warning',
 		'import/no-unresolved': 'off',
+		'no-use-before-define': 'off',
+		'lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: true }],
 		'no-console': 'off',
 		'import/order': [
 			'error',

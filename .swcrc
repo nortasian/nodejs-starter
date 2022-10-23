@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json.schemastore.org/swcrc",
+  "jsc": {
+    "parser": {
+      "syntax": "typescript",
+			"importAssertions": true,
+      "tsx": false,
+      "decorators": true,
+      "dynamicImport": false
+    },
+    "paths": {
+      "@src/*": ["dist/*"],
+			"@user/*": ["dist/modules/user/*"],
+			"@device/*": ["dist/modules/device/*"],
+			"@modules/*": ["dist/modules/*"]
+    },
+    "transform": {
+      "legacyDecorator": true,
+      "decoratorMetadata": true
+    },
+    "target": "es2016",
+    "loose": false,
+    "externalHelpers": false,
+    // Requires v1.2.50 or upper and requires target to be es2016 or upper.
+    "keepClassNames": false
+  },
+	"isModule": true,
+	"env": {
+		"loose": false
+	},
+  "module": {
+    "type": "commonjs",
+
+    // These are defaults.
+    "strict": true,
+    "strictMode": false,
+    "lazy": true,
+		"ignoreDynamic": false,
+    "noInterop": true
+  },
+  "minify": false
+}

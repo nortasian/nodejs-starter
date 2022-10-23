@@ -10,5 +10,6 @@ export function handlePagination(query: PaginationQuery): Pagination {
 		take,
 		limit: take,
 		skip,
+		offset: skip,
 	};
 }

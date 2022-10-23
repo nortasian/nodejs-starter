@@ -11,6 +11,7 @@ module.exports = {
 	},
 	setupFiles: ['./jest.setup.ts'],
 	moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
+	modulePathIgnorePatterns: ['dist', 'coverage', 'node_modules'],
 	moduleNameMapper,
 	testEnvironment: 'node',
 };

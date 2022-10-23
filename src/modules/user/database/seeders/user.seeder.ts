@@ -1,15 +1,19 @@
 import { faker } from '@faker-js/faker';
+import { InferCreationAttributes } from 'sequelize';
 import { repeat } from '@src/utils/factory';
-import db from '@src/database/db';
+import { User } from '@src/models';
 
 export async function generateUsers(count = 25) {
-	const data = repeat(count, () => ({
-		name: faker.random.word(),
-		email: faker.internet.exampleEmail(),
-	}));
+	const data = repeat(
+		count,
+		() =>
+			<InferCreationAttributes<User>>{
+				name: faker.name.fullName(),
+				email: faker.internet.exampleEmail().toLowerCase(),
+			}
+	);
 
-	return db.user.createMany({
-		data,
-		skipDuplicates: true,
+	return User.bulkCreate(data, {
+		ignoreDuplicates: true,
 	});
 }

@@ -2,20 +2,21 @@
   "compilerOptions": {
     "target": "es6",
     "module": "commonjs",
-    "lib": ["dom", "esnext"],
+    "lib": ["dom", "es5", "es6", "esnext"],
     "allowJs": true,
     "outDir": "dist",                              
     "rootDir": ".",                             
     "removeComments": true,                      
-    "strict": false,                                 
+    "strict": true,                                 
     "noImplicitAny": false,                       
     "moduleResolution": "node",                  
     "baseUrl": ".",                             
     "paths": {                                   
-        "@src/*": ["src/*"],
-				"@request": ["jest.setup.ts"],
+				"@user/*": ["./src/modules/user/*"],
+				"@device/*": ["./src/modules/device/*"],
+        "@src/*": ["./src/*"],
 				"@modules/*": ["./src/modules/*"],
-				"@user/*": ["./src/modules/user/*"]
+				"@request": ["jest.setup.ts"]
     },                                 
     "esModuleInterop": true,                        
     "experimentalDecorators": true,              
@@ -34,6 +35,6 @@
   "include": ["src"],
   "typeAcquisition": {
     "enable": true,
-    "include": ["jest", "node"]
+    "include": ["jest", "node", "sequelize-cli"]
   }
 }

@@ -8,4 +8,5 @@ export interface Pagination {
 	limit: number;
 	take: number;
 	skip: number;
+	offset: number;
 }

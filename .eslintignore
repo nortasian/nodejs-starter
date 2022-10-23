@@ -2,3 +2,4 @@ node_modules
 coverage
 dist
 logs/*.log
+src/database/migrations/*.ts

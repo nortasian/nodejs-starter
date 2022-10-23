@@ -3,11 +3,15 @@ import { repeat } from '@src/utils/factory';
 import db from '@src/database/db';
 
 export async function generate(count = 25) {
-	const data = repeat(count, () => ({
-		// name: faker.name,
-	}));
+	const data = repeat(
+		count,
+		() =>
+			<InferCreationAttributes<Model>>{
+				name: faker.name.fullName(),
+			}
+	);
 
-	return db.{{MODEL}}.createMany({
-		data,
+	return {{MODEL}}.bulkCreate(data, {
+		ignoreDuplicates: true,
 	});
 }
